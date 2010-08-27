@@ -6,7 +6,7 @@ project= os.path.dirname(apache)
 
 sys.path.insert(0,project)
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'brameda-erp.setting'
+os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 import django.core.handlers.wsgi
 application = django.core.handlers.wsgi.WSGIHandler()
