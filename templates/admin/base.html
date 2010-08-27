@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %} {% if not is_popup and user.is_active and user.is_staff %}class="tab"{% endif %}>
+	<head>
+		<title>Brameda - ERP</title>
+	
+		<meta name="robots" content="none,noarchive" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="imagetoolbar" content="no" />
+
+		<meta name="MSSmartTagsPreventParsing" content="true" />
+
+		<link rel="shortcut icon" type="image/png" href="{% load adminmedia %}{% admin_media_prefix %}icon.png">
+
+		<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/ui/jquery-ui-1.8.1.custom.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/libs/screen.css" type="text/css" media="screen, projection">
+		<link rel="stylesheet" href="{% admin_media_prefix %}css/libs/print.css" type="text/css" media="print">
+		<!--[if lt IE 8]>
+  			<link rel="stylesheet" href="{% admin_media_prefix %}css/libs/ie.css" type="text/css" media="screen, projection">
+		<![endif]-->
+
+		<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% admin_media_prefix %}css/main.css{% endblock %}" />
+
+		<script type="text/javascript" src="{% admin_media_prefix %}js/jquery-1.4.2.min.js"></script>
+
+		<script type="text/javascript" src="{% admin_media_prefix %}js/jquery-ui-1.8.1.custom.min.js"></script>
+		<script type="text/javascript" src="{% admin_media_prefix %}js/app.js"></script>
+
+		{% block extrastyle %}{% endblock %}
+		{% block extrahead %}{% endblock %}	
+		{% load i18n %}
+
+	</head>
+	<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
+		{% if not is_popup and user.is_active and user.is_staff %}
+		<!-- Header -->
+		<div id="header" class="header-blue">
+
+			<div id="header-top">
+				<div id="header-settings">
+					<ul>
+						<li class="setting">{% url admin:logout as logout_url %}{% if logout_url %}<a href="{{ logout_url }}" class="last">{% else %}<a href="{{ root_path }}logout/" class="last">{% endif %}{% trans 'Log out' %}</a></li>
+						<li class="setting">
+{% url admin:password_change as password_change_url %}
+                {% if password_change_url %}
+                    <a href="{{ password_change_url }}">
+                {% else %}
+                    <a href="{{ root_path }}password_change/">
+
+                {% endif %}
+                {% trans 'Change password' %} ({% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %})</a></li>
+						<li class="setting"><a href="/admin/account/messages/" class="message">0 berichten</a></li>
+						<li class="setting"><a href="/admin/settings/">Instellingen</a></li>	
+					</ul>
+				</div>
+				<div id="header-company">
+					{% block branding %}
+					<h1><a href="/admin/">Brameda</a></h1>
+
+					{% endblock %}	
+				</div>
+			</div>
+			<div id="header-menu">
+				<ul class="menu-main">
+					<li class="header-menu-item alt">
+						<a href="/admin/dam/"><span>Bestanden</span></a>
+					</li>
+					<li class="header-menu-item alt">
+
+						<a href="/admin/design/"><span>Ontwerp</span></a>
+					</li>
+					<li class="header-menu-item main active current">
+						<a href="/admin/"><span>Dashboard</span></a>
+					</li>
+					<li class="header-menu-item main">
+						<a href="/admin/cms/"><span>Internet</span></a>
+
+					</li>
+					<li class="header-menu-item main">
+						<a href="/admin/crm/"><span>Contact</span></a>
+					</li>
+					<li class="header-menu-item main">
+						<a href="/admin/pim/"><span>Catalogus</span></a>
+					</li>
+					<li class="header-menu-item main">
+
+						<a href="/admin/scm/"><span>Shop</span></a>
+					</li>
+				</ul>	
+				<div class="clear"></div>
+			</div>
+			<div id="header-menu-sub">
+				
+			</div>
+		</div>
+		<!-- End Header -->
+
+		{% endif %}
+		<!-- Content -->
+		<div id="view">
+			{% if not is_popup and user.is_active and user.is_staff %}
+			<div id="nav">
+				{% block nav %}
+				
+				{% endblock %}
+			</div>
+			{% endif %}
+    		<div id="content" class="{% block coltype %}colM{% endblock %}">
+			
+
+				{% if messages %}
+        		<ul class="messages">
+
+				{% for message in messages %}
+					<li class="{{ message.tags }}"><h4>{{ message.tags|capfirst }} :</h4>{{ message }}</li>
+				{% endfor %}
+				</ul>
+       			{% endif %}
+
+				{% block breadcrumbs %}<div class="breadcrumbs"><a href="/">{% trans 'Home' %}</a>{% if title %} &rsaquo; {{ title }}{% endif %}</div>{% endblock %}
+
+				
+
+        		{% block pretitle %}{% endblock %}
+        		<!--[if lt IE 8]>
+					<ul class="messages">
+       					<li class="warning">U maakt gebruik van een <strong><u>oude browser</u></strong>, voor een beter en veiliger gebruik adviseren om gebruik te maken van een <strong><u>moderne browser</u></strong>.<br /><br />
+            Bijvoorbeeld: <a href="http://www.google.com/chrome/">Google Chrome</a>, <a href="http://www.mozilla-europe.org/firefox/">Mozilla Firefox</a> of <a href="http://www.apple.com/safari/download/">Apple Safari</a>
+						</li>
+					</ul>
+				<![endif]-->	
+        		{% block content %}
+        		{% block object-tools %}{% endblock %}
+
+				<div class="block-content">
+
+        			{{ content }}
+				<div class="block-content">
+        		{% endblock %}
+				{% block sidebar %}{% endblock %}
+        		<br class="clear" />
+    		</div>
+		</div>
+    	<!-- End Content -->
+		{% if not is_popup and user.is_active and user.is_staff %}
+		<div id="footer">
+			<div id="footer-items">
+
+            	<div>
+            		<ul>
+                   		<li class="lft"  id="tip" >Done</li>
+						<li class="rght" id="noticication" >&nbsp;</li>
+                    	<li class="rght separator">&nbsp;</li>
+                		<li class="rght" id="message" ><a href="/account/message/">Berichten</a></li>
+                    	<li class="rght separator">&nbsp;</li>
+						<li class="rght" id="calender" ><a href="/account/calendar/">Kalender</a></li>
+
+                 		<li class="rght separator">&nbsp;</li>
+             		</ul>
+        		</div>
+       		</div>
+     	</div>
+		{% endif %}
+		<noscript>
+			<div class="container">
+				<ul class="messages">
+       				<li class="warning"><h4>Browser Warning</h4>{% trans 'Javascript is turn off, you must turn Javascript on before this app is working.' %}</li>
+				</ul>
+			</div>
+		</noscript>	
+	</body>
+</html>
+
