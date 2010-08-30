@@ -1,0 +1,17 @@
+{% extends "admin/base_login.html" %}
+{% load i18n %}
+
+{% block extrastyle %}{% load adminmedia %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% admin_media_prefix %}css/login.css" />{% endblock %}
+
+{% block bodyclass %}login{% endblock %}
+
+{% block content_title %}{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block box %}
+	<ul class="messages">
+		<li class="notice">{% trans 'Log out from system' %}</li>
+	</ul>
+	<p><a href="../" class="btn">{% trans 'Log in again' %}</a></p>
+{% endblock %}

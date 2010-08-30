@@ -5,8 +5,20 @@ body.login{margin:0px;}
 .login #info p{text-align:center; }
 
 #login-center{margin-top:8%; width:515px;}
-#login-box{background:#FFF; -moz-border-radius:8px 8px 8px 8px; -moz-box-shadow:0 0 15px #999999;}
+#login-box{background:#FFF; -moz-border-radius:8px 8px 8px 8px; -webkit-border-radius:8px 8px 8px 8px; -moz-box-shadow:0 0 15px #999999; -webkit-box-shadow:0 0 15px #999999;}
 #login-box #login-content{padding:35px;}
 
 #login-box #login-content h2#company-logo{display:block; height:180px; line-height:180px; min-width:160px; padding:0; margin:0; text-align:center; font-size:1.166em; float:left;}
-#login-box #login-content #login-form{border-left:1px dotted #999; float:right; margin-left:35px; min-height:180px; padding-left:35px; width:214px;}
+
+.login #login-form {border-left:1px dotted #999; float:right; margin-left:35px; min-height:180px; padding-left:35px; width:214px; color:#666;}
+.login #login-form .messages{list-style:none; margin:0; padding:0; font-size:0.9em;}
+.login #login-form .messages li{list-style:none}
+.login #login-form .form-row{margin-top:12px;}
+.login #login-form input[type="text"],.login #login-form input[type="password"]{margin:0;width:206px; font-size:1.166em; line-height:18px; padding:2px;}
+
+.login #login-footer {padding:12px 6px; color:#888; font-size:0.8em;}
+.login #login-footer a{color:#777777;text-decoration:none;}
+.login #login-footer a:hover{color:#3f3f3f; text-decoration:underline;}
+.login #login-footer ul{display:inline;}
+.login #login-footer li{list-style:none; float:left; padding:6px;}
+

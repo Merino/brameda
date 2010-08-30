@@ -1,0 +1,38 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block content %}
+<div id="login-center" class="container">
+	<div id="login-box">
+		<div id="login-content">
+			<h2 id="company-logo">Brameda</h2>
+			<div id="login-form">
+				{% block box %}
+	
+				{% endblock %}				
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div id="login-footer">
+		<ul>
+			<li><a href="">Wachtwoord vergeten?</a></li>
+			<li>Built by <a href="http://www.brameda.nl/">Brameda</a></li>
+		</ul>
+		<!--[if lt IE 9]>
+		<div class="system-message">
+			<br />
+			<br />
+			<ul class="messages">
+    			<li class="notice">U maakt gebruik van een <strong><u>oude browser</u></strong>, voor een beter en veiliger gebruik adviseren om gebruik te maken van een <strong><u>moderne browser</u></strong>.<br /><br />
+            Bijvoorbeeld: <a href="http://www.google.com/chrome/">Google Chrome</a>, <a href="http://www.mozilla-europe.org/firefox/">Mozilla Firefox</a> of <a href="http://www.apple.com/safari/download/">Apple Safari</a>
+				</li>
+			</ul>
+		</div>
+		<![endif]-->
+	</div>	
+</div>
+<script type="text/javascript">
+	$('#id_username').focus()
+</script>
+{% endblock %}

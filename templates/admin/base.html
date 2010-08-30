@@ -9,20 +9,20 @@
 
 		<meta name="MSSmartTagsPreventParsing" content="true" />
 
-		<link rel="shortcut icon" type="image/png" href="{% load adminmedia %}{% admin_media_prefix %}icon.png">
+		<link rel="shortcut icon" type="image/png" href="{% load adminmedia %}{% admin_media_prefix %}icon.png" />
 
-		<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/ui/jquery-ui-1.8.1.custom.css" type="text/css" media="screen, projection">
-		<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/libs/screen.css" type="text/css" media="screen, projection">
-		<link rel="stylesheet" href="{% admin_media_prefix %}css/libs/print.css" type="text/css" media="print">
+		<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/ui/flick/jquery-ui-1.8.4.custom.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="{% load adminmedia %}{% admin_media_prefix %}css/libs/screen.css" type="text/css" media="screen, projection" />
+		<link rel="stylesheet" href="{% admin_media_prefix %}css/libs/print.css" type="text/css" media="print" />
 		<!--[if lt IE 8]>
-  			<link rel="stylesheet" href="{% admin_media_prefix %}css/libs/ie.css" type="text/css" media="screen, projection">
+  			<link rel="stylesheet" href="{% admin_media_prefix %}css/libs/ie.css" type="text/css" media="screen, projection" />
 		<![endif]-->
 
 		<link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% admin_media_prefix %}css/main.css{% endblock %}" />
 
-		<script type="text/javascript" src="{% admin_media_prefix %}js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="{% admin_media_prefix %}js/jquery.min.js"></script>
 
-		<script type="text/javascript" src="{% admin_media_prefix %}js/jquery-ui-1.8.1.custom.min.js"></script>
+		<script type="text/javascript" src="{% admin_media_prefix %}js/jquery-ui-1.8.4.custom.min.js"></script>
 		<script type="text/javascript" src="{% admin_media_prefix %}js/app.js"></script>
 
 		{% block extrastyle %}{% endblock %}
@@ -144,8 +144,7 @@
 		{% if not is_popup and user.is_active and user.is_staff %}
 		<div id="footer">
 			<div id="footer-items">
-
-            	<div>
+				<div>
             		<ul>
                    		<li class="lft"  id="tip" >Done</li>
 						<li class="rght" id="noticication" >&nbsp;</li>
