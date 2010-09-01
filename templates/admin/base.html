@@ -33,67 +33,33 @@
 	<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
 		{% if not is_popup and user.is_active and user.is_staff %}
 		<!-- Header -->
-		<div id="header" class="header-blue">
-
-			<div id="header-top">
-				<div id="header-settings">
-					<ul>
-						<li class="setting">{% url admin:logout as logout_url %}{% if logout_url %}<a href="{{ logout_url }}" class="last">{% else %}<a href="{{ root_path }}logout/" class="last">{% endif %}{% trans 'Log out' %}</a></li>
-						<li class="setting">
-{% url admin:password_change as password_change_url %}
-                {% if password_change_url %}
-                    <a href="{{ password_change_url }}">
-                {% else %}
-                    <a href="{{ root_path }}password_change/">
-
-                {% endif %}
-                {% trans 'Change password' %} ({% filter force_escape %}{% firstof user.first_name user.username %}{% endfilter %})</a></li>
-						<li class="setting"><a href="/admin/account/messages/" class="message">0 berichten</a></li>
-						<li class="setting"><a href="/admin/settings/">Instellingen</a></li>	
-					</ul>
-				</div>
-				<div id="header-company">
-					{% block branding %}
-					<h1><a href="/admin/">Brameda</a></h1>
-
-					{% endblock %}	
-				</div>
-			</div>
+		<div id="header">
 			<div id="header-menu">
-				<ul class="menu-main">
-					<li class="header-menu-item alt">
-						<a href="/admin/dam/"><span>Bestanden</span></a>
-					</li>
-					<li class="header-menu-item alt">
-
-						<a href="/admin/design/"><span>Ontwerp</span></a>
-					</li>
-					<li class="header-menu-item main active current">
-						<a href="/admin/"><span>Dashboard</span></a>
-					</li>
-					<li class="header-menu-item main">
-						<a href="/admin/cms/"><span>Internet</span></a>
-
-					</li>
-					<li class="header-menu-item main">
-						<a href="/admin/crm/"><span>Contact</span></a>
-					</li>
-					<li class="header-menu-item main">
-						<a href="/admin/pim/"><span>Catalogus</span></a>
-					</li>
-					<li class="header-menu-item main">
-
-						<a href="/admin/scm/"><span>Shop</span></a>
-					</li>
-				</ul>	
-				<div class="clear"></div>
-			</div>
-			<div id="header-menu-sub">
-				
+				<div id="header-menu-item">	
+					<h2>Contact</h2>
+				</div>
+				<div id="header-menu-sub">
+					<ul>
+						<li class="header-menu-item">
+							<a href="/admin/dam/"><span>Partner</span></a>
+						</li>
+						<li class="header-menu-item">
+							<a href="/admin/design/"><span>Klant</span></a>
+						</li>
+						<li class="header-menu-item">
+							<a href="/admin/"><span>Leverancier</span></a>
+						</li>
+						<li class="header-menu-item">
+							<a href="/admin/cms/"><span>Groepen</span></a>
+						</li>
+						<li class="header-menu-item">
+							<a href="/admin/crm/"><span>Mailinglijst</span></a>
+						</li>
+					</ul>	
+				</div>
 			</div>
 		</div>
 		<!-- End Header -->
-
 		{% endif %}
 		<!-- Content -->
 		<div id="view">
@@ -148,12 +114,19 @@
             		<ul>
                    		<li class="lft"  id="tip" >Done</li>
 						<li class="rght" id="noticication" >&nbsp;</li>
+						<li class="rght separator">&nbsp;</li>
+						<li class="rght" id="logout" >{% url admin:logout as logout_url %}{% if logout_url %}<a href="{{ logout_url }}" class="last">{% else %}<a href="{{ root_path }}logout/" class="last">{% endif %}{% trans 'Log out' %}</a></li>
+						<li class="rght separator">&nbsp;</li>
+						<li class="rght" id="account">
+							<a href="/account/profile/">Account ({{ user.username }})</a>
+						</li>
+						
+						
                     	<li class="rght separator">&nbsp;</li>
                 		<li class="rght" id="message" ><a href="/account/message/">Berichten</a></li>
                     	<li class="rght separator">&nbsp;</li>
 						<li class="rght" id="calender" ><a href="/account/calendar/">Kalender</a></li>
-
-                 		<li class="rght separator">&nbsp;</li>
+						<li class="rght separator">&nbsp;</li>
              		</ul>
         		</div>
        		</div>
