@@ -1,8 +1,17 @@
 from django.contrib import admin
 
-from brameda.crm.models import Contact
+from brameda.system.admin import DefaultAdmin
+from brameda.crm.models import Contact,Employer
 
-class ContactAdmin(admin.ModelAdmin):
-	pass
+MODULE_INDEX = 0
+
+class ContactAdmin(DefaultAdmin):
+	position = [MODULE_INDEX,1]
+
+
+class EmployerAdmin(DefaultAdmin):
+	position = [MODULE_INDEX,0]
+
 
 admin.site.register(Contact,ContactAdmin)
+admin.site.register(Employer,EmployerAdmin)

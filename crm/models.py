@@ -7,3 +7,11 @@ class Contact(models.Model):
 	
 	def __unicode__(self):
 		return self.name
+
+# Create your models here.
+class Employer(models.Model):
+
+	name = models.CharField(max_length=255)
+	
+	def __unicode__(self):
+		return self.name

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="{{ LANGUAGE_CODE }}" xml:lang="{{ LANGUAGE_CODE }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %} {% if not is_popup and user.is_active and user.is_staff %}class="tab"{% endif %}>
 	<head>
-		<title>Brameda - ERP</title>
+		<title>{{organisation_name}} - ERP</title>
 	
 		<meta name="robots" content="none,noarchive" />
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -35,30 +35,27 @@
 		<!-- Header -->
 		<div id="header">
 			<div id="header-menu">
-				<div id="header-menu-item">	
-					<h2>Contact</h2>
-				</div>
-				<div id="header-menu-sub">
-					<ul>
-						<li class="header-menu-item">
-							<a href="/admin/dam/"><span>Partner</span></a>
-						</li>
-						<li class="header-menu-item">
-							<a href="/admin/design/"><span>Klant</span></a>
-						</li>
-						<li class="header-menu-item">
-							<a href="/admin/"><span>Leverancier</span></a>
-						</li>
-						<li class="header-menu-item">
-							<a href="/admin/cms/"><span>Groepen</span></a>
-						</li>
-						<li class="header-menu-item">
-							<a href="/admin/crm/"><span>Mailinglijst</span></a>
-						</li>
-					</ul>	
-				</div>
+				<ul>{% for app in adm_app_list %}
+					<li{% if app.active %} class="active-head"{%endif%}>
+						<h2><a href="{{ app.app_url }}">{% blocktrans with app.name as name %}{{ name }}{% endblocktrans %}</a></h2>
+						<ul>{% for model in app.models %}{% if model.perms.change %}
+ 	               				 	<li{% if model.active %} class="active-sub"{%endif%}><a href="{{ model.admin_url }}">{{ model.name }}</a></li>
+								{% else %}
+								 	<li>{{ model.name }}</li>
+            					{% endif %}{% endfor %}
+						</ul>						
+					</li>{% endfor %}
+				</ul>
 			</div>
 		</div>
+		<div id="header-menu-wrapper">
+			<div id="header-menu-wrapper-connector">&nbsp;</div>
+			<div id="header-menu-wrapper-main">
+				<br />
+				<div class="clear">&nbsp;</div>
+			</div>
+		</div>
+		
 		<!-- End Header -->
 		{% endif %}
 		<!-- Content -->
@@ -100,6 +97,10 @@
 				<div class="block-content">
 
         			{{ content }}
+
+
+					
+
 				<div class="block-content">
         		{% endblock %}
 				{% block sidebar %}{% endblock %}
@@ -109,8 +110,8 @@
     	<!-- End Content -->
 		{% if not is_popup and user.is_active and user.is_staff %}
 		<div id="footer">
-			<div id="footer-items">
-				<div>
+			<div id="footer-row">
+				<div id="footer-items">
             		<ul>
                    		<li class="lft"  id="tip" >Done</li>
 						<li class="rght" id="noticication" >&nbsp;</li>
@@ -125,7 +126,7 @@
                     	<li class="rght separator">&nbsp;</li>
                 		<li class="rght" id="message" ><a href="/account/message/">Berichten</a></li>
                     	<li class="rght separator">&nbsp;</li>
-						<li class="rght" id="calender" ><a href="/account/calendar/">Kalender</a></li>
+						<li class="rght" id="calender" ><a href="/account/calendar/"> Kalender</a></li>
 						<li class="rght separator">&nbsp;</li>
              		</ul>
         		</div>
