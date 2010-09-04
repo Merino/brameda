@@ -21,7 +21,7 @@ class MockHandler(logging.Handler):
 
 class DatabaseHandler(logging.Handler):
     def emit(self, record):
-        from system.models import Log
+        from brameda.system.models import Log
 
         if hasattr(record, 'source'):
             source = record.source
