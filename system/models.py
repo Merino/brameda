@@ -5,7 +5,7 @@ from django.db import models
 from django.core.exceptions import ImproperlyConfigured
 from django.conf import settings
 from django.utils.hashcompat import md5_constructor
-from jogging import LOGGING_LEVELS
+from brameda.jogging import LOGGING_LEVELS
 
 LEVEL_CHOICES = [(val, name) for (name, val) in LOGGING_LEVELS.items()]
 LEVEL_CHOICES_DICT = dict(LEVEL_CHOICES)
