@@ -76,6 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+	'jogging.middleware.LoggingMiddleware',
 )
 
 ROOT_URLCONF = 'brameda.urls'
@@ -110,7 +111,15 @@ INSTALLED_APPS = (
 	'brameda.system'
 )
 
+
+# Loggin Settings
+from jogging.handlers import DatabaseHandler
+import logging
+
 try:
 	from local import *
 except ImportError:
 	pass
+
+GLOBAL_LOG_LEVEL = logging.DEBUG
+GLOBAL_LOG_HANDLERS = [DatabaseHandler()]

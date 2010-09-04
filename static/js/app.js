@@ -5,7 +5,7 @@ jQuery(function(){
 	$("#header-menu .active-head h2 a").click(function(){
 		if($(this).hasClass("active-hover")){
 			$("#header-menu-wrapper").hide();
-			$(this).removeClass("active-hover");
+			$($this).removeClass("active-hover");
 
 		}else{
 			$("#header-menu-wrapper").show();
@@ -14,7 +14,7 @@ jQuery(function(){
 		return false;
 	});
 	$("html").click(function(){
-			$(".active-head").removeClass("active-hover");
+			$("#header-menu .active-head h2 a").removeClass("active-hover");
 			$("#header-menu-wrapper").hide();
 			
 	});

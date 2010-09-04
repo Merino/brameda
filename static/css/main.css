@@ -11,7 +11,7 @@ body{background:#F6F6F6;}
 #header #header-menu ul li{display:none; float:left; }
 #header #header-menu ul li a{color:#FFF; display:block; text-decoration:none;}
 #header #header-menu ul li.active-head{display:block; width:100%;}
-#header #header-menu ul li.active-hover h2 a{background-color:#7698bb;}
+#header #header-menu ul li h2 a.active-hover{background-color:#7698bb;}
 #header #header-menu ul li.active-head li{display:block; float:left; font-size:1.2em;}
 #header #header-menu ul li.active-head li a{padding:7px; 10px; height:22px;}
 #header #header-menu ul li.active-head li a:hover{color:#FFF; background:#7698bb;}

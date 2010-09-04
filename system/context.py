@@ -27,12 +27,15 @@ def applist(request):
 	user = request.user
 	for model, model_admin in site._registry.items():
 		app_label = model._meta.app_label
+
+		
+		
 		has_module_perms = user.has_module_perms(app_label)
 		
 		try: 
 			position = model_admin.position
 		except AttributeError:
-			position = [99,0]
+			position = [99,99]
 	
 		if has_module_perms:
 			perms = model_admin.get_model_perms(request)
@@ -42,6 +45,9 @@ def applist(request):
 				active = False
 
 				model_url = mark_safe('/admin/%s/%s/' % (app_label, model.__name__.lower()))
+
+				if app_label == 'auth':
+					app_label = 'system'
 
 				if re.match(model_url,request.path):
 					active = True
@@ -54,6 +60,8 @@ def applist(request):
 					'active':active,
 				}
 				if app_label in app_dict:
+					
+					# TODO sort model on position
 					app_dict[app_label]['models'].insert(position[1],model_dict)
 
 					if active:
