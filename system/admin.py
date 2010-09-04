@@ -1,5 +1,5 @@
 from django.contrib import admin
-from system.models import Log,LogSummary
+from brameda.system.models import Log,LogSummary
 
 MODULE_INDEX = 1000
 

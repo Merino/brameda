@@ -1,5 +1,5 @@
 from django.contrib import admin
-from jogging.models import Log, LogSummary
+from brameda.jogging.models import Log, LogSummary
 
 class LogAdmin(admin.ModelAdmin):
     date_hierarchy = 'datetime'
