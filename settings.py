@@ -76,7 +76,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-	'jogging.middleware.LoggingMiddleware',
+	'brameda.jogging.middleware.LoggingMiddleware',
 )
 
 ROOT_URLCONF = 'brameda.urls'
