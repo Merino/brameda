@@ -20,5 +20,5 @@ jQuery(function(){
 	});
 
 	// Buttons
-	$(".btn").button();
+	$(".btn, .object-tools a").button();
 })

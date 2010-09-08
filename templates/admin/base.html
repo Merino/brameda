@@ -28,8 +28,8 @@
 
 		{% block extrastyle %}{% endblock %}
 		{% block extrahead %}{% endblock %}	
-		{% load i18n %}
 
+		{% load i18n %}
 	</head>
 	<body class="{% if is_popup %}popup {% endif %}{% block bodyclass %}{% endblock %}">
 		{% if not is_popup and user.is_active and user.is_staff %}
@@ -61,30 +61,16 @@
 		{% endif %}
 		<!-- Content -->
 		<div id="view">
-			{% if not is_popup and user.is_active and user.is_staff %}
-			<div id="nav">
-				{% block nav %}
-				
-				{% endblock %}
-			</div>
-			{% endif %}
-    		<div id="content" class="{% block coltype %}colM{% endblock %}">
-			
-
+			<div id="content" class="{% block coltype %}{% endblock %}">
 				{% if messages %}
         		<ul class="messages">
-
 				{% for message in messages %}
 					<li class="{{ message.tags }}"><h4>{{ message.tags|capfirst }} :</h4>{{ message }}</li>
 				{% endfor %}
 				</ul>
        			{% endif %}
-
-				{% block breadcrumbs %}<div class="breadcrumbs"><a href="/">{% trans 'Home' %}</a>{% if title %} &rsaquo; {{ title }}{% endif %}</div>{% endblock %}
-
 				
-
-        		{% block pretitle %}{% endblock %}
+				{% block pretitle %}{% endblock %}
         		<!--[if lt IE 8]>
 					<ul class="messages">
        					<li class="warning">U maakt gebruik van een <strong><u>oude browser</u></strong>, voor een beter en veiliger gebruik adviseren om gebruik te maken van een <strong><u>moderne browser</u></strong>.<br /><br />
@@ -94,15 +80,9 @@
 				<![endif]-->	
         		{% block content %}
         		{% block object-tools %}{% endblock %}
-
 				<div class="block-content">
-
-        			{{ content }}
-
-
-					
-
-				<div class="block-content">
+					{{ content }}
+				</div>
         		{% endblock %}
 				{% block sidebar %}{% endblock %}
         		<br class="clear" />

@@ -94,7 +94,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 		"django.core.context_processors.i18n",
 		"django.core.context_processors.media",
 		"django.contrib.messages.context_processors.messages",
-		"brameda.system.context.applist"
+		"brameda.contrib.context.applist"
 )
 
 

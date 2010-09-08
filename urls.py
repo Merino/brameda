@@ -1,8 +1,10 @@
 from django.conf.urls.defaults import *
 
 # Uncomment the next two lines to enable the admin:
-from django.contrib import admin
-admin.autodiscover()
+from django.contrib import admin as discover
+from brameda.contrib import admin
+
+discover.autodiscover()
 
 urlpatterns = patterns('',
     # Example:

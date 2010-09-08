@@ -1,15 +1,12 @@
-from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin, GroupAdmin
+from django.contrib.auth.models import User, Group
+
+from brameda.contrib import admin
 from brameda.system.models import Log,LogSummary
 
 MODULE_INDEX = 1000
 
-class DefaultAdmin(admin.ModelAdmin):
-	position = False
-
-	def get_position(self):
-		return self.position
-
-class LogAdmin(DefaultAdmin):
+class LogAdmin(admin.DefaultAdmin):
 	position = [MODULE_INDEX,1]
 
 	date_hierarchy = 'datetime'
@@ -19,7 +16,7 @@ class LogAdmin(DefaultAdmin):
 	search_fields = ['source', 'msg', 'host']
 	list_filter = ['level', 'source', 'host']
 
-class LogSummaryAdmin(DefaultAdmin):
+class LogSummaryAdmin(admin.DefaultAdmin):
 	position = [MODULE_INDEX,2]
 
 	date_hierarchy = 'latest'
@@ -30,4 +27,7 @@ class LogSummaryAdmin(DefaultAdmin):
 	list_filter = ['level', 'source', 'host']
 
 admin.site.register(Log,LogAdmin)
+admin.site.register(User,UserAdmin)
+admin.site.register(Group,GroupAdmin)
+
 #admin.site.register(LogSummary,LogSummaryAdmin)

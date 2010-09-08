@@ -35,6 +35,40 @@ body{background:#F6F6F6;}
 /* View */
 #view {clear:both;}
 
+/* View Changelist*/
+.change-list #content {padding:10px 10px;}
+
+#content .object-tools{margin:0; padding:0; list-style:none; width:100%; height:40px;}
+#content .object-tools li{float:right;}
+#content .object-tools li a:hover{color:#FFF;}
+#content .object-tools li a.addlink{background-image:url()}
+
+/* View Grid */
+#changelist {background:#E8E8E8; -moz-border-radius:5px 5px 5px 5px; border:1px solid #C5C6C8;}
+#changelist #toolbar {background:#E8E8E8; border:none;}
+
+#changelist .actions{background:#E8E8E8; border:none;}
+
+#changelist #result_list tbody a{color:#003399;}
+
+#changelist #result_list thead th{background-color:#DADFE0; border-style:solid; border-width:0 1px 1px 0;}
+
+#changelist #result_list tbody td{border-color:#DADFE0; border-style:solid; border-width:0 1px 1px 0;}
+#changelist #result_list tbody th{border-color:#DADFE0; border-style:solid; border-width:0 1px 1px 0;}
+#changelist #result_list tbody td:first-child{text-align:center; width:22px;}
+#changelist #result_list tbody td:last-child{border-right:0;}
+
+#changelist #result_list tbody tr.row1 td{background:#FFFFFF;}
+#changelist #result_list tbody tr.row1 th{background:#FFFFFF;}
+#changelist #result_list tbody tr.row1:hover td{background:#FCF5DD;}
+#changelist #result_list tbody tr.row1:hover th{background:#FCF5DD;}
+
+
+#changelist #result_list tbody tr.row2 td{background:#F3F3F3;}
+#changelist #result_list tbody tr.row2 th{background:#F3F3F3;}
+#changelist #result_list tbody tr.row2:hover td{background:#FCF5DD;}
+#changelist #result_list tbody tr.row2:hover th{background:#FCF5DD;}
+
 /* Footer */
 #footer {position:fixed; bottom:0; left:0; width:100%; height:31px; color:black;font:11px Helvetica,Verdana, Geneva, sans-serif; z-index:5; background:#e5e5e5; padding: 0; margin: 0;}
 #footer #footer-row{background: #fff;line-height: 29px;border: 1px solid #b5b5b5; border-bottom: none;}  

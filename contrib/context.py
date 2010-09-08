@@ -1,9 +1,10 @@
 import re
 
 from django.conf import settings
-from django.contrib import admin
 from django.utils.safestring import mark_safe
 from django.utils.text import capfirst
+
+from brameda.contrib import admin
 
 site = admin.site
 
@@ -61,8 +62,8 @@ def applist(request):
 				}
 				if app_label in app_dict:
 					
-					# TODO sort model on position
 					app_dict[app_label]['models'].insert(position[1],model_dict)
+					app_dict[app_label]['models'].sort(lambda x,y: cmp(x['position'],y['position']))
 
 					if active:
 						app_dict[app_label]['active'] = active
@@ -86,4 +87,3 @@ def applist(request):
 	app_list = app_dict.values()
 	app_list.sort(lambda x, y: cmp(x['position'], y['position']))
 	return {'adm_app_list': app_list,'organisation_name':settings.ORGANISATION_NAME}
-
