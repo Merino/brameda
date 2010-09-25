@@ -8,6 +8,8 @@ body{background:#F6F6F6;}
 #header #header-menu h2 a{padding:2px 12px; height:32px; background:url('img/header.png') 90% 60% no-repeat;}
 #header #header-menu h2 a:hover{background-color:#7698bb;}
 #header #header-menu ul ul{float:left; width:50%; height:36px;}
+.no-nav-bar #header #header-menu ul ul{display:none;}
+
 #header #header-menu ul li{display:none; float:left; }
 #header #header-menu ul li a{color:#FFF; display:block; text-decoration:none;}
 #header #header-menu ul li.active-head{display:block; width:100%;}
@@ -44,30 +46,56 @@ body{background:#F6F6F6;}
 #content .object-tools li a.addlink{background-image:url()}
 
 /* View Grid */
-#changelist {background:#E8E8E8; -moz-border-radius:5px 5px 5px 5px; border:1px solid #C5C6C8;}
-#changelist #toolbar {background:#E8E8E8; border:none;}
+.module {background:#E8E8E8;  border:1px solid #C5C6C8;}
+#changelist.module{-moz-border-radius:5px 5px 0 0; -webkit-border-radius:5px 5px 0 0;}
 
-#changelist .actions{background:#E8E8E8; border:none;}
 
-#changelist #result_list tbody a{color:#003399;}
+/* Grid: Search */
+#changelist #toolbar {border:2px solid #CDDDDD; background:#E7EFEF; border-width:0px 0px 1px 0px; -moz-border-radius:5px 5px 0px 0px; -webkit-border-radius:5px 5px 0 0; color:#2D444F;}
 
-#changelist #result_list thead th{background-color:#DADFE0; border-style:solid; border-width:0 1px 1px 0;}
+#changelist #toolbar {font-size:1.2em;}
+#changelist #toolbar input[type="text"]{padding:2px 3px;}
+
+/* TODO Filter */
+#changelist-filter{display:none;}
+
+/* Grid: Action List */
+#changelist .actions{padding:1px 2px; color:#333; background:#FCF5DD;}
+
+/* Grid: Result */
+#changelist table{margin:0;padding:0;}
+
+#changelist #result_list thead th{background:url('img/grid_header_bg.gif') 0 50% repeat-x; border-color:#939797 #939797 #939797 #F9F9F9; border-style:solid; border-width:1px; font-size:0.95em;}
+#changelist #result_list thead th:first-child{text-align:center; padding:2px 5px 6px 5px; width:20px;}
+#changelist #result_list thead th:last-child{border-right:0;}
+#changelist #result_list thead th a{color:#333; text-decoration:none; display:block;}
+#changelist #result_list thead th.sorted{padding:2px 7px 2px 2px;}
+#changelist #result_list thead th.sorted a{color:#333; background:url('img/grid_header_sort_bg.gif') top left; padding:2px 2px 1px 3px; border-width:0 1px 1px 0px; border-color:#FFF; border-style:solid;}
 
 #changelist #result_list tbody td{border-color:#DADFE0; border-style:solid; border-width:0 1px 1px 0;}
 #changelist #result_list tbody th{border-color:#DADFE0; border-style:solid; border-width:0 1px 1px 0;}
-#changelist #result_list tbody td:first-child{text-align:center; width:22px;}
+#changelist #result_list tbody th a{font-weight:normal;text-decoration:none; display:block;color:#003399;}
+#changelist #result_list tbody th a:hover{text-decoration:underline; color:#003399;}
+#changelist #result_list tbody td:first-child{text-align:center; padding:2px 5px 6px 5px; width:20px;}
 #changelist #result_list tbody td:last-child{border-right:0;}
 
 #changelist #result_list tbody tr.row1 td{background:#FFFFFF;}
 #changelist #result_list tbody tr.row1 th{background:#FFFFFF;}
+#changelist #result_list tbody tr.row1.selected td{background:#FCF5DD;}
+#changelist #result_list tbody tr.row1.selected th{background:#FCF5DD;}
 #changelist #result_list tbody tr.row1:hover td{background:#FCF5DD;}
 #changelist #result_list tbody tr.row1:hover th{background:#FCF5DD;}
 
 
 #changelist #result_list tbody tr.row2 td{background:#F3F3F3;}
 #changelist #result_list tbody tr.row2 th{background:#F3F3F3;}
-#changelist #result_list tbody tr.row2:hover td{background:#FCF5DD;}
-#changelist #result_list tbody tr.row2:hover th{background:#FCF5DD;}
+#changelist #result_list tbody tr.row2.selected td{background:#F6EDCF;}
+#changelist #result_list tbody tr.row2.selected th{background:#F6EDCF;}
+#changelist #result_list tbody tr.row2:hover td{background:#F6EDCF;}
+#changelist #result_list tbody tr.row2:hover th{background:#F6EDCF;}
+
+/* Grid: Footer */
+#changelist p.paginator{padding:4px 10px; background-color:#E8E8E8; margin:0; border-top:1px solid #C5C6C8;}
 
 /* Footer */
 #footer {position:fixed; bottom:0; left:0; width:100%; height:31px; color:black;font:11px Helvetica,Verdana, Geneva, sans-serif; z-index:5; background:#e5e5e5; padding: 0; margin: 0;}

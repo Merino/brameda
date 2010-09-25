@@ -39,11 +39,11 @@
 				<ul>{% for app in adm_app_list %}
 					<li{% if app.active %} class="active-head"{%endif%}>
 						<h2><a href="{{ app.app_url }}">{% blocktrans with app.name as name %}{{ name }}{% endblocktrans %}</a></h2>
-						<ul>{% for model in app.models %}{% if model.perms.change %}
- 	               				 	<li{% if model.active %} class="active-sub"{%endif%}><a href="{{ model.admin_url }}">{{ model.name }}</a></li>
+						<ul class="{% block nav_bar_class %}{% endblock %}">{% for model in app.models %}{% if model.perms.change %}
+ 	       				 		<li{% if model.active %} class="active-sub"{%endif%}><a href="{{ model.admin_url }}">{{ model.name }}</a></li>
 								{% else %}
-								 	<li>{{ model.name }}</li>
-            					{% endif %}{% endfor %}
+						 		<li>{{ model.name }}</li>
+           						{% endif %}{% endfor %}
 						</ul>						
 					</li>{% endfor %}
 				</ul>
@@ -56,11 +56,11 @@
 				<div class="clear">&nbsp;</div>
 			</div>
 		</div>
-		
 		<!-- End Header -->
 		{% endif %}
 		<!-- Content -->
 		<div id="view">
+			{% block tabs %}{% endblock %}
 			<div id="content" class="{% block coltype %}{% endblock %}">
 				{% if messages %}
         		<ul class="messages">
@@ -84,7 +84,7 @@
 					{{ content }}
 				</div>
         		{% endblock %}
-				{% block sidebar %}{% endblock %}
+				{% block sidebar %}<div class="sidebar">{{sidebar}}</div>{% endblock %}
         		<br class="clear" />
     		</div>
 		</div>

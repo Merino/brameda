@@ -1,4 +1,11 @@
-{% extends "admin/base_site.html" %}
+{% extends "admin/base.html" %}
 {% load i18n %}
 
-
+{% block bodyclass %}tabs{% endblock %}
+{% block tabs %}
+			<div id="left-bar">
+				<ul>{% for app in adm_app_list %}{% if app.active %}{% for model in app.models %}
+					<li class="{{ app.name|slugify }}-{{ model.name|slugify }} {% if model.active %} active-sub{%endif%}"><a href="{{ model.admin_url }}">{{ model.name }}</a></li>{% endfor %}{%endif%}{%endfor%}
+				</ul>
+			</div>
+{% endblock %}
